@@ -1,17 +1,19 @@
 SOURCE=satzung.tex
 TARGET=satzung.pdf
+BUILDDIR = out
 
-satzung:
-	pdflatex satzung.tex
+default: $(TARGET)
+all: $(TARGET)
 
-distclean:
-	rm *.pdf *.log *.toc *.aux *.out *.synctex.gz
+$(TARGET):
+	if [ ! -d $(BUILDDIR) ]; then mkdir $(BUILDDIR); fi
+	latexmk -output-directory=$(BUILDDIR) -pdf -pdflatex="pdflatex" $(SOURCE)
+	cp $(BUILDDIR)/$(TARGET) $(TARGET)
 
+.PHONY: clean
 clean:
-	rm *.log *.toc *.aux *.out *.synctex.gz
+	if [ -d $(BUILDDIR) ]; then rm --recursive ./$(BUILDDIR); fi
 
-pdf:
-	make satzung
-	make clean
-
-default: satzung
+.PHONY: distclean
+distclean: clean
+	if [ -f $(TARGET) ]; then rm $(TARGET); fi
