@@ -1,0 +1,84 @@
+\documentclass[a4paper, 12pt, german, oneside]{scrreprt}
+\let\counterwithout\relax
+\let\counterwithin\relax
+\usepackage[ngerman]{babel} % neue deutsche Rechtschreibung
+\usepackage[utf8]{inputenc} % UTF8 Codierung
+\usepackage[T1]{fontenc}    %
+\usepackage{microtype}      %
+\usepackage{paralist}       %
+\usepackage{textcomp}       %
+\usepackage{color}          %
+\usepackage{hyperref}       % Anklickbare Links
+\usepackage{todonotes}
+
+% Definition der Paragraphen
+\newenvironment{myEnum}{\begin{enumerate}[(1)]\setlength{\itemsep}{-5pt}}{\end{enumerate}}
+\newenvironment{mySubEnum}{\begin{enumerate}[(i)]\setlength{\itemsep}{-5pt}}{\end{enumerate}}
+
+% Anpassung der Überschriften an Jura
+\usepackage{titlesec}
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{§ \arabic{section}}
+
+% Setze globale section Nummerierung
+\usepackage{chngcntr}
+\counterwithout*{section}{chapter}
+
+% Definition des Titels
+\title{Satzung}
+\subtitle{Fachschaft Informatik Tübingen}
+%\subsubtitle{Originalfassung}
+%\setinstitutionlogo{denker}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%% Beginn des Dokuments %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagenumbering{arabic}
+\begin{document}
+\maketitle
+\tableofcontents
+\newpage
+
+% Unterdrueckt Einrueckungen nach Absatz - gehoert direkt vor den Inhalt
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1ex plus 0.5ex minus 0.2ex}
+
+
+% % % % % % % % % % % % %
+% INHALT                %
+% Hier geht es los :))  %
+% % % % % % % % % % % % %
+
+%\textbf{FSI Tübingen e.V.::}\\
+%Satzung\\
+%1. Fassung, Tübingen 2016
+%\vfill
+%Diese Satzung wurde mit \LaTeX \space gesetzt.\\
+%Der Quelltext kann auf \url{https://github.com/fsi-tuebingen/satzung} eingesehen werden.
+%\newpage
+
+\chapter{Allgemeine Bestimmungen}
+\input{sections/allgemeine-bestimmungen.tex}
+
+\chapter{Rechtsverhältnisse des Vereins und seiner Mitglieder}
+\input{sections/rechtsverhaeltnisse.tex}
+
+\chapter{Mitgliederversammlung}
+\input{sections/mitgliederversammlung.tex}
+
+\chapter{Vorstand}
+\input{sections/vorstand.tex}
+
+\chapter{Verschiedenes}
+\input{sections/verschiedenes.tex}
+
+\chapter*{Inkrafttreten}
+\input{sections/inkrafttreten.tex}
+
+
+
+
+
+
+
+\end{document}
