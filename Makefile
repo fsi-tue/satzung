@@ -1,10 +1,11 @@
 SOURCE=satzung.tex
 TARGET=satzung.pdf
-BUILDDIR = out
+BUILDDIR=out
 
 default: $(TARGET)
 all: $(TARGET)
 
+.PHONY: $(TARGET)
 $(TARGET):
 	if [ ! -d $(BUILDDIR) ]; then mkdir $(BUILDDIR); fi
 	latexmk -output-directory=$(BUILDDIR) -pdf -pdflatex="pdflatex" $(SOURCE)

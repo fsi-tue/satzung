@@ -1,6 +1,13 @@
-.DS_Store
+# Build directory and PDFs
+/out
+*.pdf
+
+# LaTeX auxiliary files
 *.log
 *.out
 *.aux
 *.synctex.gz
 *.toc
+
+# macOS files
+.DS_Store
