@@ -1,6 +1,7 @@
 # Build directory and PDFs
 /out
 *.pdf
+/result
 
 # LaTeX auxiliary files
 *.log
@@ -8,6 +9,10 @@
 *.aux
 *.synctex.gz
 *.toc
+
+# Editor files (Vim, Emacs and others)
+*.swp
+*~
 
 # macOS files
 .DS_Store
